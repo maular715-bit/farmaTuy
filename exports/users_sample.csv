@@ -1,0 +1,6 @@
+identifier,username,email,role
+farmacia1,farmacia1,farmacia1@example.com,farmacia_responsable
+farmacia2,farmacia2,farmacia2@example.com,farmacia_responsable
+supervisor,supervisor,admin@example.com,supervisor
+externo1,externo1,guest1@example.com,externo
+externo2,externo2,guest2@example.com,externo
