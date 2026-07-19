@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Tipos{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1>Tipos</h1>
+  <a class="btn btn-success" href="{% url 'tipo_create' %}">Nuevo Tipo</a>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for t in tipos %}
+    <tr>
+      <td><a href="{% url 'tipo_edit' t.id %}">{{ t.nombre }}</a></td>
+      <td>{{ t.descripcion }}</td>
+      <td>
+        <a class="btn btn-sm btn-primary" href="{% url 'tipo_edit' t.id %}">Editar</a>
+        <form method="post" action="{% url 'tipo_delete' t.id %}" style="display:inline">{% csrf_token %}
+          <button class="btn btn-sm btn-danger" type="submit">Eliminar</button>
+        </form>
+      </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="3">No hay tipos</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

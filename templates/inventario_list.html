@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Inventario{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1>Inventario de Farmacias</h1>
+  <a class="btn btn-success" href="{% url 'inventario_create' %}">Nuevo Registro</a>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Farmacia</th>
+      <th>Medicamento</th>
+      <th>Cantidad</th>
+      <th>Precio</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in inventarios %}
+    <tr>
+      <td>{{ i.farmacia }}</td>
+      <td>{{ i.medicamento }}</td>
+      <td>{{ i.cantidad }}</td>
+      <td>{{ i.precio }}</td>
+      <td>
+        <a class="btn btn-sm btn-primary" href="{% url 'inventario_edit' i.id %}">Editar</a>
+        <form method="post" action="{% url 'inventario_delete' i.id %}" style="display:inline">{% csrf_token %}
+          <button class="btn btn-sm btn-danger" type="submit">Eliminar</button>
+        </form>
+      </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="5">No hay registros</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

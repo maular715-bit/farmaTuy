@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}{{ farmacia.razon_social }}{% endblock %}
+{% block content %}
+<h1>{{ farmacia.razon_social }}</h1>
+<dl class="row">
+  <dt class="col-sm-3">RIF</dt><dd class="col-sm-9">{{ farmacia.rif }}</dd>
+  <dt class="col-sm-3">Ubicación</dt><dd class="col-sm-9">{{ farmacia.estado }} / {{ farmacia.municipio }} / {{ farmacia.parroquia }}</dd>
+  <dt class="col-sm-3">Teléfono</dt><dd class="col-sm-9">{{ farmacia.telefono }}</dd>
+  <dt class="col-sm-3">Correo</dt><dd class="col-sm-9">{{ farmacia.correo }}</dd>
+</dl>
+
+<a class="btn btn-secondary" href="{% url 'farmacia_list' %}">Volver</a>
+<a class="btn btn-primary" href="{% url 'farmacia_edit' farmacia.id %}">Editar</a>
+
+{% endblock %}

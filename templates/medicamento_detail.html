@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}{{ medicamento.medicamento }}{% endblock %}
+{% block content %}
+<h1>{{ medicamento.medicamento }}</h1>
+<dl class="row">
+  <dt class="col-sm-3">Principio activo</dt><dd class="col-sm-9">{% if medicamento.tipo_principio_activo %}{{ medicamento.tipo_principio_activo }}{% endif %}</dd>
+  <dt class="col-sm-3">Presentación</dt><dd class="col-sm-9">{% if medicamento.tipo_presentacion %}{{ medicamento.tipo_presentacion }}{% endif %}</dd>
+  <dt class="col-sm-3">Descripción</dt><dd class="col-sm-9">{{ medicamento.descripcion }}</dd>
+  <dt class="col-sm-3">Disposición</dt><dd class="col-sm-9">{{ medicamento.disposicion }}</dd>
+</dl>
+
+<a class="btn btn-secondary" href="{% url 'medicamento_list' %}">Volver</a>
+<a class="btn btn-primary" href="{% url 'medicamento_edit' medicamento.id %}">Editar</a>
+
+{% endblock %}

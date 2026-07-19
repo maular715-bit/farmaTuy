@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Formulario Farmacia{% endblock %}
+{% block content %}
+<h1>{% if object %}Editar Farmacia{% else %}Nueva Farmacia{% endif %}</h1>
+<form method="post">{% csrf_token %}
+  {{ form.non_field_errors }}
+  <div class="mb-3">
+    {{ form.razon_social.label_tag }}
+    {{ form.razon_social }}
+  </div>
+  <div class="mb-3">
+    {{ form.rif.label_tag }}
+    {{ form.rif }}
+  </div>
+  <div class="row">
+    <div class="col">
+      {{ form.estado.label_tag }}
+      {{ form.estado }}
+    </div>
+    <div class="col">
+      {{ form.municipio.label_tag }}
+      {{ form.municipio }}
+    </div>
+    <div class="col">
+      {{ form.parroquia.label_tag }}
+      {{ form.parroquia }}
+    </div>
+  </div>
+  <div class="mb-3">
+    {{ form.geo_ubicacion.label_tag }}
+    {{ form.geo_ubicacion }}
+  </div>
+  <div class="mb-3">
+    {{ form.telefono.label_tag }}
+    {{ form.telefono }}
+  </div>
+  <div class="mb-3">
+    {{ form.correo.label_tag }}
+    {{ form.correo }}
+  </div>
+  <button class="btn btn-primary" type="submit">Guardar</button>
+</form>
+
+{% endblock %}

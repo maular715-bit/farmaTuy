@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Farmacias{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1>Farmacias</h1>
+  <a class="btn btn-success" href="{% url 'farmacia_create' %}">Nueva Farmacia</a>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Razon social</th>
+      <th>RIF</th>
+      <th>Ubicación</th>
+      <th>Correo</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for f in farmacias %}
+    <tr>
+      <td><a href="{% url 'farmacia_detail' f.id %}">{{ f.razon_social }}</a></td>
+      <td>{{ f.rif }}</td>
+      <td>{{ f.estado }} / {{ f.municipio }}</td>
+      <td>{{ f.correo }}</td>
+      <td>
+        <a class="btn btn-sm btn-primary" href="{% url 'farmacia_edit' f.id %}">Editar</a>
+        <form method="post" action="{% url 'farmacia_delete' f.id %}" style="display:inline">{% csrf_token %}
+          <button class="btn btn-sm btn-danger" type="submit">Eliminar</button>
+        </form>
+      </td>
+    </tr>
+    {% empty %}
+    <tr><td colspan="5">No hay farmacias</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

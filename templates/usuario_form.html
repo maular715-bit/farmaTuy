@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Formulario Usuario{% endblock %}
+{% block content %}
+<h1>{% if object %}Editar Usuario{% else %}Nuevo Usuario{% endif %}</h1>
+<form method="post">{% csrf_token %}
+  {{ form.non_field_errors }}
+  {{ form.as_p }}
+  <button class="btn btn-primary" type="submit">Guardar</button>
+</form>
+
+{% endblock %}

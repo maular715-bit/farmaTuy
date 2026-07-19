@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Buscar productos{% endblock %}
+{% block content %}
+<h1>Buscar productos</h1>
+
+<div class="mb-3">
+  <div class="input-group">
+    <input id="search-input" class="form-control" placeholder="Nombre del producto..." aria-label="Buscar" />
+    <button id="search-btn" class="btn btn-primary" >Buscar</button>
+  </div>
+</div>
+
+<div id="results">
+  <!-- Results will be injected here -->
+</div>
+
+{% endblock %}
