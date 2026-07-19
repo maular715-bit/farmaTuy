@@ -72,12 +72,6 @@ Se expone `POST /api/auth/social/` con body `{ "provider": "google" | "github", 
 
 Al autenticarse vía social, el servidor crea (si no existe) un `AuthUsuario` + `Usuario` local y devuelve un JWT.
 
-Notas y siguientes pasos
-- Quedan pendientes: migrar y adaptar las plantillas en `templates/` y estáticos en `static/` (actualmente la API funciona y el admin también).
-- Selecciona el intérprete `.venv` en VS Code para eliminar los avisos de importación (Ctrl+Shift+P → "Python: Select Interpreter").
-
-Soporte
-Si quieres que añada protección por JWT a endpoints concretos (por ejemplo crear/editar), o que documente la API con Swagger/OpenAPI, dímelo y lo agrego.
 
 **Formato de errores**
 
@@ -150,6 +144,3 @@ curl -X POST http://127.0.0.1:8000/api/auth/logout/ \
 	-H "Authorization: Bearer <access_token>"
 ```
 
-Documentación adicional
-
-Si quieres, puedo integrar Swagger/OpenAPI para que la API sea navegable y muestre ejemplos automáticos de request/responses.
